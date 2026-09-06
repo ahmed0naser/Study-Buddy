@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 interface IUser {
+  _id: mongoose.Types.ObjectId;
   userName: string;
   email: string;
   password: string;

@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { signup, login, getMe } from "../Controllers/auth.js";
+import { signup, login, getMe } from "../Controllers/authController.js";
 import { protect } from "../middleWares/authMiddleware.js";
 const router = Router();
 router.post("/signup", signup);

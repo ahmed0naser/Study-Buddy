@@ -5,6 +5,7 @@ import errorHandler from "./middleWares/errorHandler.js";
 import AppError from "./utils/appError.js";
 // import mongoose from "mongoose";
 import userRouter from "./Routes/userRouter.js";
+import documentRouter from "./Routes/documentRouter.js";
 // import morgan from "morgan";
 // import globalErrorHandler from "./middleWares/errorHandler.js";
 process.on("uncaughtException", (err: Error) => {
@@ -23,6 +24,7 @@ connectDB().then(() => {
   });
 });
 app.use("/api/v1/users", userRouter);
+app.use("/api/v1", documentRouter);
 
 app.all("/{*any}", (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
